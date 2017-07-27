@@ -1,4 +1,80 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>孤笠酌温</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/yatttto"><span>Github</span></a></li><li><a href="https://www.v2ex.com/member/2b2some"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="page-header"><label class="navi-button" for="navi">MENU</label><div class="background"><img src="http://callfiles.ueibo.com/hexo-theme-laughing/page_background.jpg"></div><div class="author"><div class="head"><img src="/gif/head.png"></div><h3 class="name">孑此身</h3><p class="signature">静</p></div></div><ul class="post-list" style="max-width:800px"><li> <p class="date">June 28, 2017</p><h4 class="title"><a href="/2017/06/28/浅谈深浅复制/">浅谈深浅复制</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>孑此身</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">June 27, 2017</p><h4 class="title"><a href="/2017/06/27/leetcode/">Leetcode</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>孑此身</li><li><i class="icon icon-clock"></i>30 Minutes</li><li><i class="icon icon-category"></i></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/yatttto" title="Github" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="https://weibo.com/3226322042" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 孤笠酌温<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>孤笠酌温</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/yatttto"><span>Github</span></a></li><li><a href="https://www.v2ex.com/member/2b2some"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="page-header"><label class="navi-button" for="navi">MENU</label><div class="background"><img src="http://callfiles.ueibo.com/hexo-theme-laughing/page_background.jpg"></div><div class="author"><div class="head"><img src="/gif/head.png"></div><h3 class="name">孑此身</h3><p class="signature">静</p></div></div><ul class="post-list" style="max-width:800px"><li> <p class="date">July 27, 2017</p><div class="no-title"><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">title:Git笔记（一）</div></pre></td></tr></table></figure>
+<p><strong>Git笔记（一）</strong></p>
+<h3 id="关于版本控制"><a href="#关于版本控制" class="headerlink" title="关于版本控制"></a>关于版本控制</h3><p>​    版本控制是一种记录一个或若干个文件的内容变化，以便特定将来查阅特定版本修订情况的系统。譬如设计师对一副图片进行修改，可能需要保存不同的修订版本。这时版本控制就起到了一个快照作用，对所有需要保存的修订版本的代码进行一次快照，这时我们可以利用版本控制将代码仓库恢复到任一需要回溯的时间点的状态。</p>
+<p>​    Git属于分布式管理系统，这里客户端并不仅仅只是提取最新版本的文件快照，而是将代码仓库完整的镜像下来。这样一来，任何一处协同工作的服务器出现故障，事后都可以用任意一个本地的镜像仓库进行恢复。因为每次一次的克隆操作都是对代码仓库的一次完整镜像。</p>
+<h3 id="Git基础："><a href="#Git基础：" class="headerlink" title="Git基础："></a>Git基础：</h3><p>直接记录快照，并不是差异比较</p>
+<p>Git直接是对一组文件进行快照，对每个版本的文件进行快照。每次提交更新时，都会对当前文件制作一组快照并保存这组快照的索引。如果文件没有修改，那么索引只保留对之前存储文件的链接。Git更想是一个快照流。</p>
+<p>所有操作本地执行</p>
+<p>可以在本地进行所有操作，因为在本地磁盘有完整的历史。等到需要时或者有联网再可以对远程仓库进行推送更新。</p>
+<p>Git使用SHA-1保证数据的完整性</p>
+<p>三种状态</p>
+<ul>
+<li>已提交(commited)</li>
+<li>已修改(modified)</li>
+<li>已暂存(staged)</li>
+</ul>
+<p>Git工作流程:</p>
+<ol>
+<li>在工作目录中修改文件。</li>
+<li>暂存文件，将文件的快照放入暂存区域。</li>
+<li>提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录。</li>
+</ol>
+<h3 id="Git操作："><a href="#Git操作：" class="headerlink" title="Git操作："></a>Git操作：</h3><p>从现有目录初始化仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<p>对文件夹的里的文件进行git操作时，基本操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add *.py  </div><div class="line">git add README.md</div><div class="line">git commit -m 'initial project version'</div></pre></td></tr></table></figure>
+<p>如果是从远程克隆仓库到本地，我们可以用<code>git clone [url]</code>的方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone [url]</div></pre></td></tr></table></figure>
+<p><code>clone</code>支持两种协议，我们可以使用<code>https://</code>或者是<code>git://</code>也可以用ssh协议。</p>
+<p>检查文件当前状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure>
+<p>查看文件暂存先后变化</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git diff</div><div class="line">git diff -cached #查看已经暂存起来的变化</div></pre></td></tr></table></figure>
+<p>查看提交历史</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git log</div><div class="line">git log -p -2 #'-p'是文件提交比较的内容差异，'-2'表示最近2次</div><div class="line">git log --stat #提交简略的统计信息</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-(n)</code></td>
+<td>仅显示最近的 n 条提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--since</code>,<code>--after</code></td>
+<td>仅显示指定时间之后的提交。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--until</code>,<code>--before</code></td>
+<td>仅显示指定时间之前的提交。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--author</code></td>
+<td>仅显示指定作者相关的提交。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--committer</code></td>
+<td>仅显示指定提交者相关的提交。</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--grep</code></td>
+<td>仅显示含指定关键字的提交</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-S</code></td>
+<td>仅显示添加或移除了某个关键字的提交</td>
+</tr>
+</tbody>
+</table>
+<p>撤销操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD &lt;file&gt;... #取消暂存的文件</div></pre></td></tr></table></figure>
+<p>git打标签：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag</div><div class="line">git show #查看标签信息及对应的提交信息</div></pre></td></tr></table></figure>
+</div><ul class="meta"><li><i class="icon icon-author"></i>孑此身</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">June 28, 2017</p><h4 class="title"><a href="/2017/06/28/浅谈深浅复制/">浅谈深浅复制</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>孑此身</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-category"></i></li></ul></li><li> <p class="date">June 27, 2017</p><h4 class="title"><a href="/2017/06/27/leetcode/">Leetcode</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>孑此身</li><li><i class="icon icon-clock"></i>30 Minutes</li><li><i class="icon icon-category"></i></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/yatttto" title="Github" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="https://weibo.com/3226322042" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 孤笠酌温<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
 window.onload = function () {
   wrap.className += ' done';
 }</script></body></html>
